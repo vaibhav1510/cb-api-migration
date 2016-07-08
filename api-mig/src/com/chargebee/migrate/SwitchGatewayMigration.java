@@ -38,10 +38,10 @@ public class SwitchGatewayMigration {
 
     private static void execute(Gateway srcGw, Gateway destGw) throws Exception {
         String splitBy = ",";
-        File f = new File("output.txt");
+        File f = new File("../data/output.txt");
         FileWriter fw = new FileWriter(f);
 
-        BufferedReader br = new BufferedReader(new FileReader("cust.csv"));
+        BufferedReader br = new BufferedReader(new FileReader("../data/cust.csv"));
         String line;
         int i = 0;
         while ((line = br.readLine()) != null) {
@@ -56,7 +56,7 @@ public class SwitchGatewayMigration {
                 if (!cust.customer().paymentMethod().gateway().equals(srcGw)) {
                     throw new Exception("Current Customer's Gateway is not " + srcGw.name());
                 }
-                Thread.sleep(500);
+                Thread.sleep(700);
 
                 Result res = Card.switchGatewayForCustomer(custId)
                         .gateway(destGw).request();
