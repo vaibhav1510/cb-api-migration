@@ -38,10 +38,10 @@ public class SwitchGatewayMigration {
 
     private static void execute(Gateway srcGw, Gateway destGw) throws Exception {
         String splitBy = ",";
-        File f = new File("../data/output.txt");
+        File f = new File("../data/tses/out/out2.txt");
         FileWriter fw = new FileWriter(f);
 
-        BufferedReader br = new BufferedReader(new FileReader("../data/cust.csv"));
+        BufferedReader br = new BufferedReader(new FileReader("../data/tses/cust2.csv"));
         String line;
         int i = 0;
         while ((line = br.readLine()) != null) {
